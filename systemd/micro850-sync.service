@@ -1,0 +1,18 @@
+[Unit]
+Description=Micro850 SQLite to MariaDB ordered synchronizer
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=YOUR_LINUX_USERNAME
+WorkingDirectory=/opt/micro850-pipeline
+ExecStart=/opt/micro850-pipeline/.venv/bin/python -m plc_sync --config config/settings.json sync
+Restart=always
+# Do not automatically restart after a permanent remote payload conflict.
+RestartPreventExitStatus=42
+RestartSec=10
+NoNewPrivileges=true
+
+[Install]
+WantedBy=multi-user.target

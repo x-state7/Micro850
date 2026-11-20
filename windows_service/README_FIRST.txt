@@ -1,0 +1,1 @@
+Copy this folder into C:\Micro850, without replacing .env, config, data, or your existing Python files. Read WINDOWS_SERVICE_24X7_GUIDE.md. Download nssm.exe separately from https://nssm.cc/download and place it at C:\Micro850\tools\nssm.exe. Run install_services.cmd in an ADMINISTRATOR Command Prompt. PowerShell activation is not needed.

@@ -1,0 +1,25 @@
+{
+  "device_id": "micro850-192-168-2-8",
+  "plc": {
+    "protocol": "ethernetip",
+    "host": "192.168.2.8",
+    "tag_file": "tags.json",
+    "batch_size": 20,
+    "include_patterns": [
+      "*"
+    ],
+    "exclude_patterns": [],
+    "modbus": {
+      "port": 502,
+      "unit_id": 1,
+      "timeout_seconds": 3,
+      "points": []
+    }
+  },
+  "local_db": "../data/micro850_edge.sqlite3",
+  "sample_interval_seconds": 300,
+  "collect_retry_seconds": 10,
+  "sync_interval_seconds": 2,
+  "sync_retry_seconds": 15,
+  "sync_batch_size": 50
+}

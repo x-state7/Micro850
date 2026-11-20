@@ -1,0 +1,21 @@
+FIVE-MINUTE CONFIGURATION REFERENCE
+==================================
+Active configuration file: C:\Micro850\config\settings.json
+
+To collect about every 5 minutes, change:
+  "sample_interval_seconds": 10
+TO:
+  "sample_interval_seconds": 300
+
+NOTE: 300 seconds is a delay after the previous polling cycle ends.
+The time between sample timestamps is 300 seconds + PLC read time.
+The MariaDB synchronization check can remain every 2 seconds.
+
+To apply on a running Windows system, restart ONLY the collector service:
+    sc.exe stop Micro850Collector
+    sc.exe start Micro850Collector
+(Administrator CMD; existing samples are preserved.)
+
+The file config/settings_5min.example.json contains the same configuration
+with that one key set to 300, and can be used as a comparison. The project
+still reads config/settings.json by default.

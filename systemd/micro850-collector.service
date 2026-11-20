@@ -1,0 +1,16 @@
+[Unit]
+Description=Micro850 PLC to durable SQLite collector
+After=network.target
+
+[Service]
+Type=simple
+# Replace YOUR_LINUX_USERNAME and path with actual machine account and project path.
+User=YOUR_LINUX_USERNAME
+WorkingDirectory=/opt/micro850-pipeline
+ExecStart=/opt/micro850-pipeline/.venv/bin/python -m plc_sync --config config/settings.json collect
+Restart=always
+RestartSec=10
+NoNewPrivileges=true
+
+[Install]
+WantedBy=multi-user.target
